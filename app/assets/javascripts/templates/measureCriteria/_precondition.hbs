@@ -1,0 +1,8 @@
+<li>
+    <span class="precondition">{{conjunction_code}} {{#if negation?}} NOT {{/if}}: </span>
+    {{#if preconditions}}
+        {{> measureCriteria/_preconditions preconditions}}
+    {{else}}
+        {{> measureCriteria/_dataCriteria this}}
+    {{/if}}
+</li>

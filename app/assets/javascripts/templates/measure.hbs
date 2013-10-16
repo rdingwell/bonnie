@@ -1,4 +1,5 @@
-<h2>{{id}}: {{title}}</h2>
+<h2>{{id}}: {{title}} <small>{{category}}</small></h2>
 <p>{{description}}</p>
 {{#link "measures"}}back to measures listing{{/link}}
-{{view measureCalculation}}
+
+{{>measureCriteria/_measureCriteria population_criteria}}

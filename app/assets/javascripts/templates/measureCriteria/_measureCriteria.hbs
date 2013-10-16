@@ -1,0 +1,16 @@
+
+
+<ul id="population_criteria" class="nav nav-tabs">
+    {{#if IPP}}
+        <li><a href="#ipp" data-toggle="tab">IPP</a></li>
+    {{/if}}
+
+  
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="ipp">
+    {{>measureCriteria/_preconditions IPP.preconditions}}
+  </div>
+</div>
+

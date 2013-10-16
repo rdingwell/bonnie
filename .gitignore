@@ -15,3 +15,5 @@
 /tmp
 /db/measures
 /coverage
+
+.DS_Store
