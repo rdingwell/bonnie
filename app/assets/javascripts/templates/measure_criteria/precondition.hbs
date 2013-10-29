@@ -1,0 +1,8 @@
+<li>
+    <span class="precondition">{{population.conjunction_code}} {{#if population.negation?}} NOT {{/if}}: </span>
+    {{#if population.preconditions}}
+        {{template "measure_criteria/preconditions" population=population dataCriteria=dataCriteria}}
+    {{else}}
+        {{template "measure_criteria/dataCriteria" population=population dataCriteria=dataCriteria}}
+    {{/if}}
+</li>

@@ -15,8 +15,8 @@
 #= require jquery-ui-1.10.3.custom
 #= require handlebars/handlebars
 #= require underscore/underscore-min
-#= require backbone/backbone-min
-#= require thorax/thorax.min
+#= require backbone/backbone
+#= require thorax/thorax
 #
 #= require_tree ./templates
 #= require_tree ./models
@@ -39,6 +39,14 @@ Backbone.sync = _.wrap(Backbone.sync, (sync, method, model, success, error) ->
     model.set(auth_options, {silent: true})
   # proxy the call to the old sync method 
   sync(method, model, success, error))
+
+Handlebars.registerHelper('index', (array, index) ->
+    array[index]
+)
+
+
+# This is to allow us to use the template helper
+Handlebars.templates = JST
 
 window.bonnie = new BonnieRouter()
 # We call Backbone.history.start() after all the measures are loaded, in app/views/layouts/application.html.erb

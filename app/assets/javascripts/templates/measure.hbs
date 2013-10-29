@@ -2,4 +2,8 @@
 <p>{{description}}</p>
 {{#link "measures"}}back to measures listing{{/link}}
 
-{{>measureCriteria/_measureCriteria population_criteria}}
+
+
+{{template "measure_criteria/measure_criteria" populationCriteria=population_criteria dataCriteria=data_criteria}}
+
+
