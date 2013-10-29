@@ -15,9 +15,11 @@
 #= require jquery-ui-1.10.3.custom
 #= require handlebars/handlebars
 #= require underscore/underscore-min
-#= require backbone/backbone
-#= require thorax/thorax
+#= require backbone/backbone-min
+#= require thorax/thorax.min
+#= require moment/min/moment.min.js
 #
+#= require helpers
 #= require_tree ./templates
 #= require_tree ./models
 #= require_tree ./views

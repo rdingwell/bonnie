@@ -4,13 +4,20 @@ class Thorax.Views.Measures extends Thorax.View
     collapsedCount: @measures.collapsed().length
 
   initialize: ->
-  	@importMeasureView = new Thorax.Views.ImportMeasure()
+    @importMeasureView = new Thorax.Views.ImportMeasure()
+    to_finalize = @measures.select((m) -> m.attributes['needs_finalize'])
+    @finalizeMeasuresView = new Thorax.Views.FinalizeMeasures(measures: new Thorax.Collections.Measures(to_finalize))
 
-  events: {
-   'click #importMeasureTrigger': 'importMeasure'
-  }
+  events:
+    'click #importMeasureTrigger': 'importMeasure'
+    'click #updateMeasureTrigger': 'updateMeasure'
 
-  importMeasure: ->
+  importMeasure: (event) ->
+    @importMeasureView.$('.modal-title').text('New Measure')
     @importMeasureView.display()
-    false
+    event.preventDefault()
 
+  updateMeasure: (event) ->
+    @importMeasureView.$('.modal-title').text('Reimport Measure')
+    @importMeasureView.display()
+    event.preventDefault()

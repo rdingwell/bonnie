@@ -5,6 +5,7 @@ Bonnie::Application.routes.draw do
     collection do
       get 'libraries'
       get 'matrix'
+      post 'finalize'
     end
     member do
       get 'add'
@@ -15,6 +16,8 @@ Bonnie::Application.routes.draw do
   resources :patients do
     collection do 
       get 'create_test'
+      post 'materialize'
+      post 'save'
     end
   end
   resources :records

@@ -14,6 +14,7 @@
 /log/*.log
 /tmp
 /db/measures
+/db/value_sets
 /coverage
 
 .DS_Store
