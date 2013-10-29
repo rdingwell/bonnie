@@ -10,6 +10,7 @@ Bonnie::Application.routes.draw do
     member do
       get 'add'
       get 'remove'
+      get 'logic'
     end
   end
 

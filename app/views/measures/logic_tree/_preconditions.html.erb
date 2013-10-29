@@ -1,0 +1,5 @@
+<ul>
+  <% preconditions.each do |precondition| %>
+    <%== render partial: 'measures/logic_tree/precondition', locals: {measure: measure, conjunction: conjunction, negation: negation, precondition: precondition, parent_id: parent_id }%>
+  <% end %>
+</ul>

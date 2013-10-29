@@ -129,4 +129,10 @@ class MeasuresController < ApplicationController
     redirect_to measures_path
   end
 
+  def logic
+    @measure = Measure.where(hqmf_id: params[:id]).first.as_hqmf_model
+    @population = @measure.populations.first
+    @force_yield = true
+  end
+
 end

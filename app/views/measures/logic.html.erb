@@ -1,0 +1,27 @@
+  <%== render partial: 'measures/logic_tree/header', locals: {measure: @measure} %>
+    <table>
+      <tr style="background-color: #FFFFFF;">
+        <td width="80%">
+          <h3>
+            Population criteria
+          </h3>
+          <div>
+            <ul>
+              <%  
+                 HQMF::PopulationCriteria::ALL_POPULATION_CODES.each do |pop_code|
+                   if (@population[pop_code])
+              %>
+                 
+                     <%== render partial: 'measures/logic_tree/population_criteria', locals: {measure: @measure, population: @population, pop_code: pop_code}%>
+          
+              <% 
+                   end
+                 end
+                  
+              %>
+            </ul>
+          </div>
+          <br/><br/><br/><br/><br/><br/>
+        </td>
+      </tr>
+    </table>

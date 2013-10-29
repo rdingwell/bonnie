@@ -1,0 +1,59 @@
+<span class="<%== data_criteria.id %>">
+  <% if data_criteria.type != :derived %>
+    <%== render partial: 'measures/logic_tree/subset_operators', locals: {subset_operators: data_criteria.subset_operators}%>
+    "<% if (data_criteria.specific_occurrence)%>Occurrence <%= data_criteria.specific_occurrence%>: <% end %><%= data_criteria.description %>
+  
+    <%
+      if data_criteria.value || data_criteria.field_values
+        %>(<%
+        if data_criteria.value
+          if data_criteria.type!='characteristic' 
+            %>
+              result <%== render partial: 'measures/logic_tree/value', locals: {value: data_criteria.value} %>
+            <%
+          end
+        end
+        if data_criteria.field_values
+          data_criteria.field_values.each do |key, value|
+          %>
+            <%= HQMF::DataCriteria::FIELDS[key][:title] %><%== render partial: 'measures/logic_tree/value', locals: {value: value} %>
+          <%
+          end
+        end
+        %>)<%
+      end
+    %><% if data_criteria.negation %>
+      (NOT DONE FOR: <%= data_criteria.negation_code_list_id %> -- OID_TRANSLATION)
+    <% end %>"
+  
+    <% if data_criteria.temporal_references %>
+      <% data_criteria.temporal_references.each do |temporal_reference| %>
+          <% if temporal_reference.range %> 
+            <%== render partial: 'measures/logic_tree/value', locals: {value: temporal_reference.range} %>
+          <% end %>
+          <%= temporal_text(temporal_reference.type).downcase %>
+          <% if temporal_reference.reference.id != 'MeasurePeriod' %>
+            <%== render partial: 'measures/logic_tree/data_criteria', locals: {measure: measure, data_criteria: measure.data_criteria(temporal_reference.reference.id)}%>
+          <% else %>
+            "Measurement Period"
+          <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%== render partial: 'measures/logic_tree/subset_operators', locals: {subset_operators: data_criteria.subset_operators}%>
+    
+    <% if data_criteria.children_criteria %>
+      <ul>
+        <% data_criteria.children_criteria.each do |child_id| %>
+
+          <li>
+            <span class="<%== data_criteria.id %>"><%= conjunction_translator[data_criteria.derivation_operator] %>: </span>
+            <%== render partial: 'measures/logic_tree/data_criteria', locals: {measure: measure, data_criteria: measure.data_criteria(child_id)}%>
+          </li>
+
+        <% end %>
+      </ul>
+    <% end %>
+    
+  <% end %>
+</span>
