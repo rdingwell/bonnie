@@ -6,7 +6,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :crosswalk_enabled
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -32,6 +32,8 @@ class User
   field :admin, type:Boolean, :default => false
   field :portfolio, type:Boolean, :default => false
 
+  field :crosswalk_enabled,  type:Boolean, default: false
+  
   has_many :measures
   has_many :records
 
