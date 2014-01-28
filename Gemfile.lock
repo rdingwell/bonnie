@@ -44,7 +44,7 @@ GIT
 
 GIT
   remote: https://github.com/projecttacoma/bonnie_bundler.git
-  revision: c19bb6e88f2ee6c0fd78e01ae94fd11a1e69f9e8
+  revision: 3842b6c2c643cb2615d0584f3f6849ae078fa445
   branch: develop
   specs:
     bonnie_bundler (1.0.0)
