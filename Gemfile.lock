@@ -10,25 +10,6 @@ GIT
       rubyzip (~> 0.9.9)
 
 GIT
-  remote: https://github.com/projectcypress/health-data-standards.git
-  revision: eba71703a1c04ffed6f2357553b438601602f734
-  branch: bonnie_master
-  specs:
-    health-data-standards (3.4.6)
-      activesupport (~> 4.0.0)
-      builder (~> 3.1)
-      erubis (~> 2.7.0)
-      log4r (~> 1.1.10)
-      memoist (~> 0.9.1)
-      mongoid (~> 4.0.0.rc2)
-      mongoid-tree (~> 1.0.4)
-      nokogiri (= 1.6.0)
-      protected_attributes (~> 1.0.5)
-      rest-client (~> 1.6.7)
-      rubyzip (= 0.9.9)
-      uuid (~> 2.3.7)
-
-GIT
   remote: https://github.com/projecttacoma/bonnie_bundler.git
   revision: 6d6b2c60a8e2164297cc98462af3eebc6320a477
   branch: master
@@ -55,6 +36,23 @@ GIT
   branch: master
   specs:
     simplexml_parser (1.0.0)
+
+PATH
+  remote: ../health-data-standards
+  specs:
+    health-data-standards (3.4.6)
+      activesupport (~> 4.0.0)
+      builder (~> 3.1)
+      erubis (~> 2.7.0)
+      log4r (~> 1.1.10)
+      memoist (~> 0.9.1)
+      mongoid (~> 4.0.0.rc2)
+      mongoid-tree (~> 1.0.4)
+      nokogiri (= 1.6.0)
+      protected_attributes (~> 1.0.5)
+      rest-client (~> 1.6.7)
+      rubyzip (= 0.9.9)
+      uuid (~> 2.3.7)
 
 GEM
   remote: https://rubygems.org/

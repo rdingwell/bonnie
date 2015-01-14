@@ -21,7 +21,6 @@
       {{/if}}
     </select>
   </div>
-
   {{#ifCond type '==' 'PQ'}}
     <div class="col-md-6">
       <label for="value_{{@cid}}" class="sr-only">input</label>
@@ -55,6 +54,7 @@
       <input type="text" name="start_time" id="start_time_{{@cid}}" class="time-picker form-control" placeholder="--:-- --" data-show-inputs="false" data-default-time="8:00 AM">
     </div>
   {{/ifCond}}
+
 
   <div class="col-md-1">
     {{#button "addValue" class="btn btn-primary pull-right" disabled="disabled"}}
